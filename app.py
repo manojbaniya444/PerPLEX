@@ -179,9 +179,13 @@ async def generate_chat_responses(message: str, checkpoint_id: Optional[str] = N
                         urls.append(item["url"])
                         
                 urls_json = json.dumps(urls)
-                yield f"data: {{\"type\": \"search_results\", \"urls\": {urls_json}}}\n\n"
+                yield f"data: {{\"type\": \"search_results\", \"urls\": \"{urls_json}\"}}\n\n"
                 
     yield f"data: {{\"type\": \"end\"}}\n\n"
+
+@app.get("/health")
+async def health():
+    return {"status": "ok", "message": "AI Research Assistant Backend is running"}
 
 @app.get("/chat_stream/{message}")
 async def chat_stream(message: str, checkpoint_id: Optional[str] = Query(None)):
@@ -189,3 +193,7 @@ async def chat_stream(message: str, checkpoint_id: Optional[str] = Query(None)):
         generate_chat_responses(message, checkpoint_id),
         media_type="text/event-stream"
     )
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)

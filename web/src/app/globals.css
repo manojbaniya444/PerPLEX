@@ -1,26 +1,35 @@
 @import "tailwindcss";
 
-/* Root variables for consistent theming */
+/* Root variables for consistent gray & golden theming */
 :root {
-  --background: 255 255 255;
+  --background: 249 250 251;
   --foreground: 17 24 39;
+  --accent-primary: 245 158 11; /* amber-500 */
+  --accent-secondary: 251 191 36; /* amber-400 */
+  --gray-primary: 55 65 81; /* gray-700 */
+  --gray-secondary: 107 114 128; /* gray-500 */
 }
 
 .dark {
   --background: 17 24 39;
   --foreground: 243 244 246;
+  --accent-primary: 251 191 36;
+  --accent-secondary: 245 158 11;
+  --gray-primary: 156 163 175;
+  --gray-secondary: 107 114 128;
 }
 
 /* Ensure proper color inheritance */
 html {
   background-color: rgb(var(--background));
   color: rgb(var(--foreground));
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-/* Custom scrollbar styles */
+/* Custom scrollbar styles with golden accent */
 .scrollbar-thin {
   scrollbar-width: thin;
-  scrollbar-color: rgb(156 163 175) transparent;
+  scrollbar-color: rgb(var(--accent-primary) / 0.3) transparent;
 }
 
 .scrollbar-thin::-webkit-scrollbar {
@@ -32,37 +41,38 @@ html {
 }
 
 .scrollbar-thin::-webkit-scrollbar-thumb {
-  background-color: rgb(156 163 175);
+  background: linear-gradient(to bottom, rgb(var(--accent-primary) / 0.4), rgb(var(--accent-secondary) / 0.4));
   border-radius: 3px;
 }
 
 .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-  background-color: rgb(107 114 128);
+  background: linear-gradient(to bottom, rgb(var(--accent-primary) / 0.6), rgb(var(--accent-secondary) / 0.6));
 }
 
 /* Dark mode scrollbar */
 .dark .scrollbar-thin {
-  scrollbar-color: rgb(75 85 99) transparent;
+  scrollbar-color: rgb(var(--accent-primary) / 0.4) transparent;
 }
 
 .dark .scrollbar-thin::-webkit-scrollbar-thumb {
-  background-color: rgb(75 85 99);
+  background: linear-gradient(to bottom, rgb(var(--accent-primary) / 0.5), rgb(var(--accent-secondary) / 0.5));
 }
 
 .dark .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-  background-color: rgb(107 114 128);
+  background: linear-gradient(to bottom, rgb(var(--accent-primary) / 0.7), rgb(var(--accent-secondary) / 0.7));
 }
 
-/* Smooth animations */
+/* Smooth animations with premium feel */
 * {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
+  transition-duration: 200ms;
 }
 
 /* Typography improvements */
 .prose {
   line-height: 1.7;
+  color: rgb(var(--foreground));
 }
 
 .prose p {
@@ -73,9 +83,36 @@ html {
   margin-bottom: 0;
 }
 
-/* Focus ring improvements */
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+  color: rgb(var(--gray-primary));
+  font-weight: 600;
+}
+
+.prose code {
+  color: rgb(var(--accent-primary));
+  background-color: rgb(var(--accent-primary) / 0.1);
+  padding: 0.2em 0.4em;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+}
+
+.prose pre {
+  background-color: rgb(var(--gray-primary));
+  color: rgb(243 244 246);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+.prose pre code {
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+/* Focus ring improvements with golden accent */
 :focus-visible {
-  outline: 2px solid rgb(139 92 246);
+  outline: 2px solid rgb(var(--accent-primary));
   outline-offset: 2px;
 }
 
@@ -84,6 +121,64 @@ html {
   .backdrop-blur-sm {
     backdrop-filter: blur(4px);
   }
+  
+  .backdrop-blur-md {
+    backdrop-filter: blur(12px);
+  }
+}
+
+/* Premium button styles */
+.btn-primary {
+  background: linear-gradient(135deg, rgb(var(--accent-primary)), rgb(var(--accent-secondary)));
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgb(var(--accent-primary) / 0.2);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgb(var(--accent-primary) / 0.3);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgb(var(--accent-primary) / 0.2);
+}
+
+/* Premium card styles */
+.card {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -1px rgb(0 0 0 / 0.06);
+  border: 1px solid rgb(229 231 235);
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.05);
+  transform: translateY(-1px);
+}
+
+/* Golden gradient backgrounds */
+.bg-golden-gradient {
+  background: linear-gradient(135deg, rgb(var(--accent-secondary) / 0.1), rgb(var(--accent-primary) / 0.1));
+}
+
+.bg-golden-gradient-strong {
+  background: linear-gradient(135deg, rgb(var(--accent-secondary)), rgb(var(--accent-primary)));
+}
+
+/* Text gradients */
+.text-golden-gradient {
+  background: linear-gradient(135deg, rgb(var(--accent-primary)), rgb(var(--accent-secondary)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* Prevent hydration flash */
@@ -93,4 +188,55 @@ html.dark {
 
 html:not(.dark) {
   color-scheme: light;
+}
+
+/* Loading animations */
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgb(var(--accent-primary) / 0.1), transparent);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Selection styles */
+::selection {
+  background-color: rgb(var(--accent-primary) / 0.2);
+  color: rgb(var(--gray-primary));
+}
+
+/* Custom utilities for the premium theme */
+.shadow-golden {
+  box-shadow: 0 4px 12px rgb(var(--accent-primary) / 0.15);
+}
+
+.shadow-golden-lg {
+  box-shadow: 0 10px 25px rgb(var(--accent-primary) / 0.2);
+}
+
+.border-golden {
+  border-color: rgb(var(--accent-primary) / 0.3);
+}
+
+/* Message animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.3s ease-out;
 }

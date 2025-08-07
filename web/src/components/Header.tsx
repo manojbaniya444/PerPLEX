@@ -1,22 +1,33 @@
-const Header = () => {
+import React from 'react';
+
+const Header: React.FC = () => {
     return (
-        <header className="relative flex items-center justify-between px-8 py-5 bg-gradient-to-r from-[#4A3F71] to-[#5E507F] z-10">
-            <div className="absolute inset-0 bg-[url('/api/placeholder/100/100')] opacity-5 mix-blend-overlay"></div>
-            <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+        <header className="relative flex items-center justify-center px-8 py-6 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 border-b border-gray-600/30">
+            {/* Subtle background pattern */}
+            <div className="absolute inset-0 bg-gradient-to-r from-amber-500/5 to-amber-400/5"></div>
+            
+            {/* Bottom border accent */}
+            <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-400/30 to-transparent"></div>
 
-            <div className="flex items-center relative">
-                <div className="absolute -left-3 top-1/2 transform -translate-y-1/2 w-1.5 h-6 bg-teal-400 rounded-full opacity-80"></div>
-                <span className="font-bold text-white text-xl tracking-tight">Perplexity 2.0</span>
-            </div>
-
-            <div className="flex items-center space-x-1">
-                <a className="text-white/80 text-xs px-4 py-2 font-medium hover:text-white hover:bg-white/10 rounded-lg transition-all duration-200 cursor-pointer">HOME</a>
-                <a className="text-white bg-white/10 text-xs px-4 py-2 font-medium hover:bg-white/15 rounded-lg transition-all duration-200 cursor-pointer">CHAT</a>
-                <a className="text-white/80 text-xs px-4 py-2 font-medium hover:text-white hover:bg-white/10 rounded-lg transition-all duration-200 cursor-pointer">CONTACTS</a>
-                <a className="text-white/80 text-xs px-4 py-2 font-medium hover:text-white hover:bg-white/10 rounded-lg transition-all duration-200 cursor-pointer">SETTINGS</a>
+            {/* Logo and Title */}
+            <div className="flex items-center space-x-3 relative">
+                {/* Golden accent dot */}
+                <div className="w-2 h-2 bg-gradient-to-r from-amber-400 to-amber-500 rounded-full shadow-lg shadow-amber-400/50"></div>
+                
+                {/* App Title */}
+                <h1 className="font-bold text-white text-xl tracking-tight">
+                    <span className="text-gray-100">Perplexica</span>
+                    <span className="text-amber-400 ml-1">AI</span>
+                </h1>
+                
+                {/* Optional status indicator */}
+                <div className="flex items-center space-x-1">
+                    <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></div>
+                    <span className="text-gray-300 text-xs font-medium">Online</span>
+                </div>
             </div>
         </header>
-    )
-}
+    );
+};
 
 export default Header
