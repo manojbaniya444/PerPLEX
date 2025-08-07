@@ -1,4 +1,12 @@
-# AI Search Assistant (NEXT JS + LANGGRAPH FAST API)
+## AI Search Assistant (NEXT JS + LANGGRAPH FAST API)
+
+![PREVIEW](./figure/preview.png)
+
+---
+
+Langgraph Simple LLM with Tool Architecture:
+
+![AGENT GRAPH](./figure/graph.png)
 
 ## Quick Start
 
@@ -15,10 +23,13 @@
 
    - Create a `.env` file in the root directory
    - Add your OpenAI API key:
+
      ```
      OPENAI_API_KEY=your_api_key_here
      TAVILY_API_KEY=your_tavily_api_key_here
      ```
+
+     OR USE LOCAL OLLAMA WITH OPENAI COMPATIBILITY
 
 4. **Start the backend server:**
    ```bash

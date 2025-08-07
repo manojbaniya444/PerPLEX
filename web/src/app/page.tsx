@@ -11,6 +11,7 @@ const Home: React.FC = () => {
     messages,
     currentMessage,
     isLoading,
+    
     setCurrentMessage,
     handleSubmit,
   } = useChat();

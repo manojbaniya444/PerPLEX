@@ -20,7 +20,12 @@ class AgentState(TypedDict):
     messages: Annotated[list, add_messages]
 
 
-model = ChatOpenAI(model="gpt-4o")
+# model = ChatOpenAI(model="gpt-4o")
+model = ChatOpenAI(
+    base_url="http://localhost:11434/v1",
+    api_key="ollama",
+    model="granite3-dense"
+)
 
 search_tool = TavilySearchResults(max_results=4)
 
