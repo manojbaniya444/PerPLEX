@@ -11,7 +11,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Perplexica AI - Advanced Research Assistant",
-  description: "Premium AI assistant with real-time web search and intelligent research capabilities",
+  description:
+    "Premium AI assistant with real-time web search and intelligent research capabilities",
   keywords: ["AI", "assistant", "research", "web search", "chat", "perplexica"],
   authors: [{ name: "Perplexica Team" }],
 };
@@ -31,12 +32,14 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning className={inter.variable}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
       </head>
       <body className="font-inter antialiased bg-gradient-to-br from-gray-50 to-amber-50/20">
-        <ErrorBoundary>
-          {children}
-        </ErrorBoundary>
+        <ErrorBoundary>{children}</ErrorBoundary>
       </body>
     </html>
   );

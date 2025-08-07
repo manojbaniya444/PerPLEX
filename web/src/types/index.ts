@@ -17,7 +17,13 @@ export interface Message {
 
 // Event Source Data Types
 export interface StreamData {
-  type: 'checkpoint' | 'content' | 'search_start' | 'search_results' | 'search_error' | 'end';
+  type:
+    | "checkpoint"
+    | "content"
+    | "search_start"
+    | "search_results"
+    | "search_error"
+    | "end";
   content?: string;
   checkpoint_id?: string;
   query?: string;

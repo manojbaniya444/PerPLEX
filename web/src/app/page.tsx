@@ -1,18 +1,18 @@
-"use client"
+"use client";
 
-import React from 'react';
-import Header from '@/components/Header';
-import InputBar from '@/components/InputBar';
-import MessageArea from '@/components/MessageArea';
-import { useChat } from '@/hooks/useChat';
+import React from "react";
+import Header from "@/components/Header";
+import InputBar from "@/components/InputBar";
+import MessageArea from "@/components/MessageArea";
+import { useChat } from "@/hooks/useChat";
 
 const Home: React.FC = () => {
-  const { 
-    messages, 
-    currentMessage, 
+  const {
+    messages,
+    currentMessage,
     isLoading,
-    setCurrentMessage, 
-    handleSubmit 
+    setCurrentMessage,
+    handleSubmit,
   } = useChat();
 
   return (
@@ -21,9 +21,9 @@ const Home: React.FC = () => {
       <div className="w-full max-w-6xl bg-white flex flex-col rounded-2xl shadow-2xl border border-gray-200/60 overflow-hidden h-[95vh] backdrop-blur-sm">
         <Header />
         <MessageArea messages={messages} />
-        <InputBar 
-          currentMessage={currentMessage} 
-          setCurrentMessage={setCurrentMessage} 
+        <InputBar
+          currentMessage={currentMessage}
+          setCurrentMessage={setCurrentMessage}
           onSubmit={handleSubmit}
           isLoading={isLoading}
         />
